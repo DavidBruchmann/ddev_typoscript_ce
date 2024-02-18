@@ -1,0 +1,10 @@
+--- Classes/ContentObject/UserContentObject.php.original	2023-12-05 18:01:20.380838595 +0700
++++ Classes/ContentObject/UserContentObject.php	2023-12-05 18:04:26.123555115 +0700
+@@ -41,6 +41,7 @@
+             // Come here only if we are not called from $TSFE->processNonCacheableContentPartsAndSubstituteContentMarkers()!
+             $this->cObj->setUserObjectType(ContentObjectRenderer::OBJECTTYPE_USER);
+         }
++        $conf['_data_'] = $this->cObj->data;
+         $tempContent = $this->cObj->callUserFunction($conf['userFunc'] ?? '', $conf, '');
+         if ($this->cObj->doConvertToUserIntObject) {
+             $this->cObj->doConvertToUserIntObject = false;
